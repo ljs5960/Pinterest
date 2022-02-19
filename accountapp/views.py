@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 
 # Create your views here.
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.urls import reverse, reverse_lazy
 
 from accountapp.models import HelloWorld
@@ -34,3 +34,9 @@ class AccountCreateView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('accountapp:hello_world')    # class -> reverse_lazy
     template_name = 'accountapp/create.html'
+
+
+class AccountDetailView(DetailView):
+    model = User
+    context_object_name = 'target_user' # Everyone contacts my page can see my info, not their info
+    template_name = 'accountapp/detail.html'

@@ -8,11 +8,14 @@
         <span>nav3</span>
         {% if not user.is_authenticated %}
         <a href="{% url 'accountapp:login' %}?next={{ request.path }}"> <!-- After login, stay in previous page -> ?next={{requst.path}}-->
-            <span>login</span>
+            <span>LogIn</span>
         </a>
         {% else %}
+        <a href="{% url 'accountapp:detail' pk=user.pk %}"> <!-- detail/<int:pk> require user.pk -->
+            <span>MyPage</span>
+        </a>
         <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
-            <span>logout</span>
+            <span>LogOut</span>
         </a>
         {% endif %}
     </div>
