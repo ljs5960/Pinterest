@@ -3,36 +3,49 @@
 {% block content%}
 
 <div>
-    <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-        <p>
-            {{ target_user.date_joined }}
-        </p>
+  <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
 
-        {% if target_user.profile %}
+    {% if target_user.profile %}
+    <img src="{{ target_user.profile.image.url }}" alt="" style="height: 8rem; width: 8rem; border: 1px solid black; border-radius: 10rem; margin-bottom: 2rem;">
+
+    <h2 style="font-family: 'NanumSquareB'">
+      {{ target_user.profile.nickname }}
+
+      {% if target_uesr == user %}
+      <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+        Edit
+      </a>
+      {% endif %}
+    </h2>
+
+    <h5 style="margin-bottom: 4rem;">
+      {{ target_user.profile.message }}
+    </h5>
+    {% else %}
+      {% if target_uesr == user %}
+      <a href="{% url 'profileapp:create' %}">
         <h2 style="font-family: 'NanumSquareB'">
-            {{ target_user.profile.nickname }}
+          Create Profile
         </h2>
-        {% else %}
-        <a href="{% url 'profileapp:create' %}">
-            <h2 style="font-family: 'NanumSquareB'">
-                Create Profile
-            </h2>
-        </a>
-        {% endif %}
-        
-        {% if target_user == user %}
-        <a href="{% url 'accountapp:update' pk=user.pk %}">
-            <p>
-                Change Info
-            </p>
-        </a>
-        <a href="{% url 'accountapp:delete' pk=user.pk %}">
-            <p>
-                Delete
-            </p>
-        </a>
-        {% endif %}
-    </div>
+      </a>
+      {% else %}
+      <div>닉네임 미설정</div>
+      {% endif %}
+    {% endif %}
+
+    {% if target_user == user %}
+    <a href="{% url 'accountapp:update' pk=user.pk %}">
+      <p>
+        Change Info
+      </p>
+    </a>
+    <a href="{% url 'accountapp:delete' pk=user.pk %}">
+      <p>
+        Delete
+      </p>
+    </a>
+    {% endif %}
+  </div>
 </div>
 
 {% endblock %}
