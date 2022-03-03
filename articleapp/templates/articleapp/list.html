@@ -6,31 +6,64 @@
 <style>
   .container div {
     width: 250px;
-    height: 500px;
     background-color: antiquewhite;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
     border-radius: 1rem;
   }
-
+  .container img {
+    width: 100%;
+    border-radius: 1rem;
+  }
 </style>
 
 <div class="container">
-  <div class="item1">1</div>
-  <div class="item2">2</div>
-  <div class="item3">3</div>
-  <div class="item4">4</div>
-  <div class="item5">5</div>
-  <div class="item6">6</div>
-  <div class="item7">7</div>
-  <div class="item8">8</div>
-  <div class="item9">9</div>
-  <div class="item10">10</div>
-  <div class="item11">11</div>
-  <div class="item12">12</div>
-  <div class="item13">13</div>
+  <div class="item1">
+    <img src="https://picsum.photos/200/300" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/310" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/340" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/290" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/320" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/330" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/280" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/290" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/300" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/310" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/320" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/290" alt="">
+  </div>
+  <div>
+    <img src="https://picsum.photos/200/295" alt="">
+  </div>
+</div>
+
+<div style="text-align: center;">
+  <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
+    Create Article
+  </a>
 </div>
 
 <script src="{% static 'js/magicgrid.js' %}"></script>
